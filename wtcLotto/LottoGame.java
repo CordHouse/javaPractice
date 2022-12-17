@@ -1,12 +1,28 @@
 package wtcLotto;
 
-import java.util.List;
+import java.io.IOException;
 
 public class LottoGame {
-    public void play() {
-        Lotto lotto = new Lotto(List.of(8, 21, 23, 41, 42, 43));
-        long numberMatchCount = lotto.getNumbers().stream().filter(number -> lotto.getWinNumbers().contains(number)).count();
-        System.out.println(WinMoney.Rank.FIRST.getWinningMoney(numberMatchCount));
+    private final Input input = new Input();
+    private final Output output = new Output();
+    private final Lotto lotto = new Lotto();
+    public void play() throws IOException {
+        output.buyLottoMoney();
+        lotto.buyLottoCycle(input.buyMoney());
+        output.buyLottoCount(String.valueOf(input.getMoneyMod()));
+        lotto.getAllLotto();
+        askWinningNumber();
+        askBonusNumber();
+    }
+
+    public void askWinningNumber() throws IOException {
+        output.inputWinningNumber();
+        input.winningNumber();
+    }
+
+    public void askBonusNumber() throws IOException {
+        output.inputBonusNumber();
+        input.bonusNumber();
     }
 
 }
