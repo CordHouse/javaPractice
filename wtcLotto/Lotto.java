@@ -5,18 +5,20 @@ import java.util.List;
 
 public class Lotto {
 
-    private final List<Integer> numbers;
-    private final List<Integer> winNumbers = new LinkedList<>(List.of(8, 21, 23, 25, 26, 42));
-
-    public Lotto(List<Integer> numbers){
-        this.numbers = numbers;
+    private final List<List<Integer>> lottoList = new LinkedList<>();
+    public void buyLottoCycle(int cycle){
+        for(int i = 0; i < cycle; i++){
+            lottoList.add(new RandomNumber().getLottoNumber());
+        }
     }
-    public List<Integer> getNumbers(){
-        return numbers;
+    public List<Integer> getLotto(int index){
+        return lottoList.get(index);
     }
 
-    public List<Integer> getWinNumbers() {
-        return winNumbers;
+    public void getAllLotto(){
+        for(List<Integer> values : lottoList){
+            System.out.println(values);
+        }
     }
 
 }
