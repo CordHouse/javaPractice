@@ -40,7 +40,6 @@ public class Lotto {
                 lottoAggregation.put(key, lottoAggregation.getOrDefault(key, 0) + 1);
             }
         }
-        System.out.println(lottoAggregation);
     }
 
     public int getLottoAggregation(String key){
@@ -72,6 +71,14 @@ public class Lotto {
             }
         }
         return "";
+    }
+
+    public int getTotalMoney(){
+        int curTotal = 0;
+        for(String key : lottoAggregation.keySet()){
+            curTotal += (WinMoney.Rank.findByRank(key).getWinningMoney(key) * lottoAggregation.get(key));
+        }
+        return curTotal;
     }
 
 }
