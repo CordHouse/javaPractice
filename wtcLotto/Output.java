@@ -21,7 +21,7 @@ public class Output {
 
     public void aggregation(Lotto lotto){
         sb = new StringBuilder();
-        sb.append("당첨 통계").append(NEXT_LINE);
+        sb.append(NEXT_LINE+"당첨 통계").append(NEXT_LINE);
         sb.append("---").append(NEXT_LINE);
         sb.append("3개 일치 (5,000원) - ").append(lotto.getLottoAggregation("3개")).append("개").append(NEXT_LINE);
         sb.append("4개 일치 (50,000원) - ").append(lotto.getLottoAggregation("4개")).append("개").append(NEXT_LINE);
@@ -29,5 +29,9 @@ public class Output {
         sb.append("5개 일치, 보너스 볼 일치 (30,000,000원) - ").append(lotto.getLottoAggregation("5개+보너스")).append("개").append(NEXT_LINE);
         sb.append("6개 일치 (2,000,000,000원) - ").append(lotto.getLottoAggregation("6개")).append("개");
         System.out.println(sb.toString());
+    }
+
+    public void totalProfit(double profitPercent){
+        System.out.println("총 수익률은 "+profitPercent+"%입니다.");
     }
 }
