@@ -1,5 +1,7 @@
 package wtcLotto;
 
+import java.util.Arrays;
+
 public class WinMoney {
     public enum Rank {
         FIRST(6, 2_000_000_000),
@@ -9,12 +11,19 @@ public class WinMoney {
         FIFTH(3, 5_000),
         MISS(0, 0);
 
-        private int countOfMatch;
-        private int winningMoney;
+        private final int countOfMatch;
+        private final int winningMoney;
 
-        private Rank(int countOfMatch, int winningMoney){
+        Rank(int countOfMatch, int winningMoney){
             this.countOfMatch = countOfMatch;
             this.winningMoney = winningMoney;
+        }
+
+        public static Rank findByRank(int code){
+            return Arrays.stream(Rank.values())
+                    .filter(rank -> rank.countOfMatch == code)
+                    .findAny()
+                    .orElse(MISS);
         }
 
         public int getCountOfMatch() {
