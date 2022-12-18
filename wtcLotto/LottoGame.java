@@ -17,6 +17,7 @@ public class LottoGame {
         askWinningNumber();
         askBonusNumber();
         eachLottoMatchCount();
+        profitMoney();
     }
 
     public void askWinningNumber() throws IOException {
@@ -32,6 +33,10 @@ public class LottoGame {
     public void eachLottoMatchCount(){
         lotto.setLottoAggregation();
         output.aggregation(lotto);
+    }
+
+    public void profitMoney(){
+        output.totalProfit(((double) lotto.getTotalMoney() / (double) input.getBuyMoney()) * 100);
     }
 
 }
