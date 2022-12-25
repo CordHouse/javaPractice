@@ -11,11 +11,13 @@ public class Input {
         return Integer.parseInt(br.readLine());
     }
 
-    public String readMoving(){
-        return null;
+    public String readMoving() throws IOException {
+        br = new BufferedReader(new InputStreamReader(System.in));
+        return br.readLine();
     }
 
-    public String readGameCommand(){
-        return null;
+    public String readGameCommand() throws IOException {
+        br = new BufferedReader(new InputStreamReader(System.in));
+        return br.readLine();
     }
 }
