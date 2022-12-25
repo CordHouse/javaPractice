@@ -8,6 +8,7 @@ public class Main {
             BridgeGame bridgeGame = new BridgeGame();
             bridgeGame.init();
             bridgeGame.start();
+            bridgeGame.gameOver();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
